@@ -18,7 +18,7 @@ class Rightcommit < Formula
   depends_on "ripgrep"
 
   def install
-    system "cargo", "install", "--locked", *std_cargo_args(path: ".", root: libexec)
+    system "cargo", "install", *std_cargo_args(path: ".", root: libexec)
     (bin/"rightcommit").write <<~SH
       #!/bin/bash
       export PATH="#{Formula["node@22"].opt_bin}:#{Formula["rust"].opt_bin}:$PATH"
