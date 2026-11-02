@@ -2,17 +2,16 @@
 class Rightcommit < Formula
   desc "Self-hosted, Rust-built orchestration for Claude Code, Codex and Pi Agent"
   homepage "https://rightcommit.com"
-  url "https://static.crates.io/crates/rightcommit/rightcommit-1.0.0.crate"
-  version "1.0.0"
-  sha256 "65770810dde78290d5553aed844826ed7f2e0359df12f1ccac7fa4082f4d3850"
+  url "https://static.crates.io/crates/rightcommit/rightcommit-1.0.1.crate"
+  version "1.0.1"
+  sha256 "3e580de11ed93faf7f8125ddabaabf3d79754107a49b54d5735f666f01d7430c"
   license "FSL-1.1-ALv2"
-  revision 1
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  # Rust is not needed to run rightcommit: Homebrew keeps it for upgrades, and workflows on
-  # Rust projects use whichever cargo comes first in PATH (rustup or this one).
+  # Rust is not needed to run rightcommit: workflows on Rust projects use whichever cargo
+  # comes first in PATH (rustup or Homebrew's, if the user keeps it).
   depends_on "rust" => :build
   depends_on "git"
   depends_on "node@24"
@@ -39,9 +38,9 @@ class Rightcommit < Formula
       Open http://localhost:8080. Data stays in ./data.
       Run setup again after upgrading to refresh the agents.
 
-      Homebrew keeps Rust installed to build rightcommit and its upgrades. Workflows on
-      Rust projects, such as the bundled helpdesk example, can use it. If you use rustup,
-      run `brew unlink rust` so that your rustup toolchain stays first in PATH.
+      Homebrew installed Rust only to compile rightcommit: `brew autoremove` removes it,
+      and an upgrade installs it again when needed. If you keep it and use rustup, run
+      `brew unlink rust` so that your rustup toolchain stays first in PATH.
     EOS
   end
 
