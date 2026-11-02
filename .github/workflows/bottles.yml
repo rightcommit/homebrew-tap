@@ -61,9 +61,9 @@ jobs:
             mv "$(jq -r '.[].bottle.tags[].local_filename' "$json")" "$(jq -r '.[].bottle.tags[].filename' "$json")"
           done
           if gh release view "rightcommit-${pkg}" >/dev/null 2>&1; then
-            gh release upload "rightcommit-${pkg}" *.bottle.tar.gz --clobber
+            gh release upload "rightcommit-${pkg}" *.bottle*.tar.gz --clobber
           else
-            gh release create "rightcommit-${pkg}" *.bottle.tar.gz --title "rightcommit ${pkg} bottles" \
+            gh release create "rightcommit-${pkg}" *.bottle*.tar.gz --title "rightcommit ${pkg} bottles" \
               --notes "Precompiled Homebrew bottles for rightcommit ${pkg}. Install with \`brew install rightcommit/tap/rightcommit\`." --latest=false
           fi
           brew bottle --merge --write --no-commit *.bottle.json
