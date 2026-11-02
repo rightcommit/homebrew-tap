@@ -6,14 +6,17 @@ class Rightcommit < Formula
   version "1.0.0"
   sha256 "65770810dde78290d5553aed844826ed7f2e0359df12f1ccac7fa4082f4d3850"
   license "FSL-1.1-ALv2"
+  revision 1
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
-  depends_on "rust"
-  depends_on "node@22"
-  depends_on "openssl@3"
+  # Rust is not needed to run rightcommit: Homebrew keeps it for upgrades, and workflows on
+  # Rust projects use whichever cargo comes first in PATH (rustup or this one).
+  depends_on "rust" => :build
   depends_on "git"
+  depends_on "node@24"
+  depends_on "openssl@3"
   depends_on "python@3.14"
   depends_on "ripgrep"
 
@@ -21,7 +24,7 @@ class Rightcommit < Formula
     system "cargo", "install", *std_cargo_args(path: ".", root: libexec)
     (bin/"rightcommit").write <<~SH
       #!/bin/bash
-      export PATH="#{Formula["node@22"].opt_bin}:#{Formula["rust"].opt_bin}:$PATH"
+      export PATH="#{Formula["node@24"].opt_bin}:$PATH"
       exec "#{libexec}/bin/rightcommit" "$@"
     SH
     chmod 0755, bin/"rightcommit"
@@ -34,7 +37,11 @@ class Rightcommit < Formula
         rightcommit setup
         rightcommit
       Open http://localhost:8080. Data stays in ./data.
-      Run setup again after upgrading to refresh Pi extensions.
+      Run setup again after upgrading to refresh the agents.
+
+      Homebrew keeps Rust installed to build rightcommit and its upgrades. Workflows on
+      Rust projects, such as the bundled helpdesk example, can use it. If you use rustup,
+      run `brew unlink rust` so that your rustup toolchain stays first in PATH.
     EOS
   end
 
