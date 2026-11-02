@@ -11,10 +11,9 @@ Source code and documentation: [rightcommit/rightcommit](https://github.com/righ
 brew install rightcommit/tap/rightcommit
 ```
 
-Homebrew compiles rightcommit on your Mac, so the first install takes several minutes.
-Homebrew also installs Rust to compile rightcommit. Afterwards you can remove it with
-`brew autoremove`: an upgrade installs it again when needed. If you keep it and already use
-[rustup](https://rustup.rs), run `brew unlink rust`, so that your rustup toolchain stays first.
+On Apple Silicon Macs with macOS 15 or later, Homebrew downloads a precompiled bottle and the
+install takes a few seconds. On Intel Macs and older macOS versions it compiles rightcommit,
+which takes several minutes and installs Rust: afterwards `brew autoremove` removes it.
 
 ## Start
 
