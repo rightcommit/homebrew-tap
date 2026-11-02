@@ -2,9 +2,9 @@
 class Rightcommit < Formula
   desc "Self-hosted, Rust-built orchestration for Claude Code, Codex and Pi Agent"
   homepage "https://rightcommit.com"
-  url "https://static.crates.io/crates/rightcommit/rightcommit-1.0.1.crate"
-  version "1.0.1"
-  sha256 "3e580de11ed93faf7f8125ddabaabf3d79754107a49b54d5735f666f01d7430c"
+  url "https://static.crates.io/crates/rightcommit/rightcommit-1.0.2.crate"
+  version "1.0.2"
+  sha256 "d145f521cffb553344fb64839680270e28bcbe3d0bfb66d857ede5dd13004713"
   license "FSL-1.1-ALv2"
 
   depends_on "cmake" => :build
