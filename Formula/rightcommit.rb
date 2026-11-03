@@ -2,16 +2,10 @@
 class Rightcommit < Formula
   desc "Self-hosted, Rust-built orchestration for Claude Code, Codex and Pi Agent"
   homepage "https://rightcommit.com"
-  url "https://static.crates.io/crates/rightcommit/rightcommit-1.0.2.crate"
-  version "1.0.2"
-  sha256 "d145f521cffb553344fb64839680270e28bcbe3d0bfb66d857ede5dd13004713"
+  url "https://static.crates.io/crates/rightcommit/rightcommit-1.1.0.crate"
+  version "1.1.0"
+  sha256 "5cbb9073be388f97a863b7bfd4fec2ddb268ebbca80d5f742eefd1440b5453f3"
   license "FSL-1.1-ALv2"
-
-  bottle do
-    root_url "https://github.com/rightcommit/homebrew-tap/releases/download/rightcommit-1.0.2"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "25c92502cd529d18a73619131fa2aaddeaf4547a418565e5e951686fceb7a356"
-  end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
@@ -44,9 +38,8 @@ class Rightcommit < Formula
       Open http://localhost:8080. Data stays in ./data.
       Run setup again after upgrading to refresh the agents.
 
-      Homebrew installed Rust only to compile rightcommit: `brew autoremove` removes it,
-      and an upgrade installs it again when needed. If you keep it and use rustup, run
-      `brew unlink rust` so that your rustup toolchain stays first in PATH.
+      If Homebrew compiled rightcommit (Intel Macs, macOS before 15), it installed Rust
+      only for that: `brew autoremove` removes it.
     EOS
   end
 
