@@ -7,6 +7,12 @@ class Rightcommit < Formula
   sha256 "0671e175cd743a01eeac87eb69019870980435960df27a8111834c7cc4c1432e"
   license "FSL-1.1-ALv2"
 
+  bottle do
+    root_url "https://github.com/rightcommit/homebrew-tap/releases/download/rightcommit-1.2.3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a50e935718b2dece4b2822cae382cfc14ccee8ec4a98bed75c1f31059adb1fd3"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
