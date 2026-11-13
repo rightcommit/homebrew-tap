@@ -5,7 +5,7 @@ class Rightcommit < Formula
   url "https://static.crates.io/crates/rightcommit/rightcommit-1.4.0.crate"
   version "1.4.0"
   sha256 "57ea020402ec308a5bb54f872feeebaf6db932e880ed2a20bcc1f749c1c87f1e"
-  license "FSL-1.1-ALv2"
+  license "Apache-2.0"
 
   bottle do
     root_url "https://github.com/rightcommit/homebrew-tap/releases/download/rightcommit-1.4.0"
