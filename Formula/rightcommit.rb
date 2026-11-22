@@ -7,6 +7,12 @@ class Rightcommit < Formula
   sha256 "2363301cda48292388472f8efb1f606e661dbf5f6e990b5191a3264918b03dc7"
   license "Apache-2.0"
 
+  bottle do
+    root_url "https://github.com/rightcommit/homebrew-tap/releases/download/rightcommit-1.7.0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1dd4b6c64d788a5318bfdce0c6991639467fc45f4f72c343246ffdcf2f11549a"
+  end
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "protobuf" => :build
