@@ -2,16 +2,10 @@
 class Rightcommit < Formula
   desc "Self-hosted, Rust-built orchestration for Claude Code, Codex and Pi Agent"
   homepage "https://rightcommit.com"
-  url "https://static.crates.io/crates/rightcommit/rightcommit-1.10.2.crate"
-  version "1.10.2"
-  sha256 "4dcbc02cdc3ef4f39e5cd81a023f882689cc12a89b6bd978cb961a9f9147133a"
+  url "https://static.crates.io/crates/rightcommit/rightcommit-1.10.3.crate"
+  version "1.10.3"
+  sha256 "2a3169c2a3b200ec901c7adf223017b3c4f75edf31de1f5b14d6d1167ca9a956"
   license "Apache-2.0"
-
-  bottle do
-    root_url "https://github.com/rightcommit/homebrew-tap/releases/download/rightcommit-1.10.2"
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "63fd12f19df3acee973e889f984248ba6cea1f0f96d42756a7688ebd9304a6bf"
-  end
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
